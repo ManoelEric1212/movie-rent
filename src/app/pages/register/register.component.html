@@ -1,0 +1,93 @@
+<div class="container">
+  <div class="login-content">
+    <div class="data-login">
+      <h1>Cadastrar</h1>
+      <p>Cadastre-se para acessar o sistema</p>
+
+      <form class="example-form">
+        <mat-form-field class="input-full-width">
+          <mat-label>Name</mat-label>
+          <input
+            type="text"
+            placeholder="John Doe"
+            matInput
+            [formControl]="nameFormControl"
+            required
+          />
+          <mat-error
+            *ngIf="
+              nameFormControl.hasError('max') &&
+              !nameFormControl.hasError('required')
+            "
+          >
+            Please enter a valid name with at least 3 characters
+          </mat-error>
+          <mat-error *ngIf="nameFormControl.hasError('required')">
+            Name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="input-full-width">
+          <mat-label>Email</mat-label>
+          <input
+            type="email"
+            matInput
+            placeholder="johndoe@example.com"
+            required
+            [formControl]="emailFormControl"
+          />
+          <mat-error
+            *ngIf="
+              emailFormControl.hasError('email') &&
+              !emailFormControl.hasError('required')
+            "
+          >
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="emailFormControl.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="input-full-width">
+          <mat-label>Password</mat-label>
+          <input
+            type="password"
+            placeholder="********"
+            matInput
+            [formControl]="passwordFormControl"
+            required
+          />
+          <mat-error
+            *ngIf="
+              passwordFormControl.hasError('max') &&
+              !passwordFormControl.hasError('required')
+            "
+          >
+            Please enter a valid password with at least 6 characters
+          </mat-error>
+          <mat-error *ngIf="passwordFormControl.hasError('required')">
+            Password is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <div class="button-row">
+          <button type="submit" mat-raised-button color="primary">
+            Casdastrar
+          </button>
+          <a
+            routerLink="/"
+            routerLinkActive="active"
+            ariaCurrentWhenActive="page"
+            mat-raised-button
+            >Login</a
+          >
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="svg-content">
+    <img src="/assets/login-bg.svg" alt="oi" width="500" height="500" />
+  </div>
+</div>
