@@ -1,22 +1,71 @@
 <div class="container">
   <div class="login-content">
     <div class="data-login">
-      <h1>Entar</h1>
-      <p>Insira suas credenciais para acessar o sistema</p>
-      <form class="example-form">
-        <mat-form-field class="example-full-width">
-          <mat-label>Email</mat-label>
-          <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com">
-          <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-            Please enter a valid email address
-          </mat-error>
-          <mat-error *ngIf="emailFormControl.hasError('required')">
-            Email is <strong>required</strong>
-          </mat-error>
-        </mat-form-field>
-      </form>
+      <div class="login-section">
+        <h1>Entrar</h1>
+        <p>Insira suas credenciais para acessar o sistema</p>
+        <div *ngIf="isLogin">
+          <form class="example-form" (ngSubmit)="onSubmit()">
+            <mat-form-field class="example-full-width">
+              <mat-label>Email</mat-label>
+              <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com"
+                name="email" [(ngModel)]="email" />
+              <mat-error *ngIf="
+                    emailFormControl.hasError('email') &&
+                    !emailFormControl.hasError('required')
+                  ">
+                Please enter a valid email address
+              </mat-error>
+              <mat-error *ngIf="emailFormControl.hasError('required')">
+                Email is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Senha</mat-label>
+              <input type="password" matInput [formControl]="passwordFormControl" name="password"
+                [(ngModel)]="password" />
+              <mat-error *ngIf="
+                    passwordFormControl.hasError('minLength') &&
+                    !passwordFormControl.hasError('required')
+                  ">
+                Please enter a password with 6 elements or more
+              </mat-error>
+              <mat-error *ngIf="passwordFormControl.hasError('required')">
+                Password is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <button mat-raised-button color="primary" type="submit">Entrar</button>
+            <button mat-raised-button (click)="openRegister()">Registre-se</button>
+          </form>
 
-
+        </div>
+        <div *ngIf="!isLogin">
+          <form class="example-form" (ngSubmit)="onRegister">
+            <mat-form-field class="example-full-width">
+              <mat-label>Nome</mat-label>
+              <input type="text" matInput [formControl]="userFormControl" placeholder="Ex. Jhon Doe" name="user"
+                [(ngModel)]="userRegister" />
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label>Email</mat-label>
+              <input type="email" matInput [formControl]="emailFormControlRegister" placeholder="Ex. pat@example.com"
+                name="emailRegister" [(ngModel)]="emailRegister" />
+              <mat-error *ngIf="
+                  emailFormControlRegister.hasError('email')
+                ">
+                Please enter a valid email address
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Senha</mat-label>
+              <input type="password" matInput [formControl]="passwordFormControlRegister" name="passwordRegister"
+                [(ngModel)]="passwordRegister" />
+            </mat-form-field>
+            <button mat-raised-button color="primary" type="submit">Cadastrar</button>
+            <button mat-raised-button (click)="openLogin()">Voltar</button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
   <div class="svg-content">
