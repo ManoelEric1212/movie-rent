@@ -6,10 +6,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 
-import { RegisterComponent } from './register.component';
+import { RegisterComponent } from 'src/app/pages/register/register.component';
+
+import { RegisterFormComponent } from './register-form.component';
 
 @NgModule({
-  declarations: [RegisterComponent],
+  declarations: [RegisterComponent, RegisterFormComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -19,4 +21,4 @@ import { RegisterComponent } from './register.component';
     MatButtonModule,
   ],
 })
-export class RegisterModule {}
+export class RegisterFormModule {}

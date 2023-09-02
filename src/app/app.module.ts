@@ -5,17 +5,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { RegisterModule } from './pages/register/register.module';
-
 import { LoginFormModule } from './components/login-form/login-form.module';
+import { RegisterFormModule } from './components/register-form/register-form.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RegisterModule,
     LoginFormModule,
+    RegisterFormModule,
     BrowserAnimationsModule,
   ],
   providers: [],
