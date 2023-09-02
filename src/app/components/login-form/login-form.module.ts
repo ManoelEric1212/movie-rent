@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { LoginComponent } from 'src/app/pages/login/login.component';
 
 import { LoginFormComponent } from './login-form.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [LoginFormComponent, LoginComponent],
@@ -19,6 +20,7 @@ import { LoginFormComponent } from './login-form.component';
     MatInputModule,
     ReactiveFormsModule,
     MatButtonModule,
+    RouterModule,
   ],
 })
 export class LoginFormModule {}

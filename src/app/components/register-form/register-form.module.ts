@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { RegisterComponent } from 'src/app/pages/register/register.component';
 
 import { RegisterFormComponent } from './register-form.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [RegisterComponent, RegisterFormComponent],
@@ -19,6 +20,7 @@ import { RegisterFormComponent } from './register-form.component';
     MatInputModule,
     ReactiveFormsModule,
     MatButtonModule,
+    RouterModule,
   ],
 })
 export class RegisterFormModule {}
